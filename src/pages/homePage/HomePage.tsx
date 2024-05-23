@@ -1,8 +1,8 @@
 import Page from "@/components/page";
 import Button from "@/components/button";
 import Row from "@/components/row";
-import { useConfirmContext } from "@/context/confirmContext/ConfirmContext.tsx";
 import Confirm from "@/components/confirm";
+import { useConfirmContext } from "@/context/confirmContext";
 
 function HomePage() {
   const confirm = useConfirmContext();

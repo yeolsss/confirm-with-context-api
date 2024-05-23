@@ -2,10 +2,11 @@ import Modal from "@/pages/modal";
 import { PropsWithChildren } from "react";
 import Button from "@/components/button";
 import Row from "@/components/row";
-import { useConfirmContext } from "@/context/confirmContext/ConfirmContext.tsx";
+import { useConfirmContext } from "@/context/confirmContext";
 
 function Confirm({ children }: PropsWithChildren) {
   const { handleResult, backdropClosable } = useConfirmContext();
+
   const handleBackdrop = () => {
     if (backdropClosable) {
       handleResult(false);
@@ -18,10 +19,16 @@ function Confirm({ children }: PropsWithChildren) {
         <h1 className="text-xl font-bold">{children}</h1>
       </div>
       <Row>
-        <Button variant={"danger"} onClick={() => handleResult(true)}>
+        <Button
+          type="button"
+          variant={"danger"}
+          onClick={() => handleResult(true)}
+        >
           확인
         </Button>
-        <Button onClick={() => handleResult(false)}>취소</Button>
+        <Button type="button" onClick={() => handleResult(false)}>
+          취소
+        </Button>
       </Row>
     </Modal>
   );
